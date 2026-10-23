@@ -1,10 +1,10 @@
 ---
 id: TASK-4
 title: Build the eval harness across the three experiments
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-10-23T16:03:00Z'
-updated_date: '2026-10-23T16:15:00Z'
+updated_date: '2026-10-23T17:00:00Z'
 labels: []
 dependencies:
   - TASK-2

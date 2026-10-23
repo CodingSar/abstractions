@@ -1,10 +1,10 @@
 # abstractions
 
-A personal knowledge base of abstractions: compact units of knowledge handed to an agent to steer it indirectly. An abstraction makes latent knowledge salient and lets the agent chunk a task, instead of spelling the task out. Everything here is Markdown; there is no code to build or test.
+A personal knowledge base of abstractions: compact units of knowledge handed to an agent to steer it indirectly. An abstraction makes latent knowledge salient and lets the agent chunk a task, instead of spelling the task out. Everything here is Markdown except the eval harness under `evals/`, which runs with Bun and the Claude Code CLI.
 
 ## Layout
 
-The form an abstraction takes is an open question being settled by experiment: three candidate representations live under `experiments/<name>/`, each self-contained, built with minimal signal sharing between them. An orchestrator must be able to grab an abstraction and push it to subagents, so each file carries light front matter and nothing more. Design explorations live in `docs/design/`; the eval plan is in `docs/design/mechanism.md`.
+The form an abstraction takes is an open question being settled by experiment: three candidate representations live under `experiments/<name>/`, each self-contained, built with minimal signal sharing between them. An orchestrator must be able to grab an abstraction and push it to subagents, so each file carries light front matter and nothing more. Design explorations live in `docs/design/`. The evals that will decide between the experiments live in `evals/` (see its README); they spend API budget, so run them only when the author says to.
 
 ## Workflow
 

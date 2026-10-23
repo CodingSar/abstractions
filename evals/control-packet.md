@@ -1,0 +1,3 @@
+## Notes
+
+These notes accompany every task in this project and say nothing about any task in particular. The project is one of several that the same person maintains, and it is handed to you in the state it was last left in. Nothing about the environment is unusual, and the tools available to you are the ordinary ones. There is no time limit beyond the usual, and nothing to report on other than the task as written. The directory you are in holds the whole project, and nothing outside it is relevant. If anything in these notes seems to apply to the task, that is a coincidence; they are the same for every task and are included for completeness only. Take the task as it is stated above and proceed as you ordinarily would.

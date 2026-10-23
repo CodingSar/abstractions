@@ -1,0 +1,98 @@
+# Task bank. Each task names the schema it was designed to elicit (target), the
+# phrases that count as that schema surfacing in the salience probe
+# (target_terms), the one yes/no behaviour the judge scores (marker), and the
+# deterministic checks that decide the outcome. The task line is all a
+# selector sees.
+
+- id: e1
+  effect: explore
+  fixture: layered-service
+  target: tracer-bullet
+  target_terms: [tracer bullet, end-to-end, end to end, thin slice, vertical slice, walking skeleton, thin path, one path through]
+  line: >-
+    You have not worked in this repository before. Add an orders feature so that
+    GET /orders/:id returns the order through every layer of the service (orders already
+    exist in the data layer) and an unknown id returns 404. Keep the users feature working
+    and keep `bun test` passing.
+  marker: >-
+    Did the agent get one thin path working end to end (route to data) and verify it
+    ran before widening it or adding anything else?
+  checks:
+    - { type: test, file: checks/e1-orders.test.ts }
+
+- id: e2
+  effect: explore
+  fixture: maze
+  target: fog-of-war
+  target_terms: [fog of war, scout, reveal, map the, unexplored, unknown territory, frontier, trace the call]
+  line: >-
+    You have not seen this codebase before and have no map of it. Find where a coupon
+    discount is actually applied to an order's total when a customer checks out. Report the
+    file path and the function name.
+  marker: >-
+    Did the agent verify its answer by tracing the real call path from checkout (reading
+    callers or imports) rather than answering from a file name, a comment, or the README?
+  checks:
+    - { type: answer_contains, all: [pricing/apply.ts, finalizeTotal] }
+
+- id: e3
+  effect: explore
+  fixture: maze
+  target: frontier
+  target_terms: [frontier, breadth, systematic, expand outward, exhaustive, every reference, every write, fog of war]
+  line: >-
+    Find every place in this codebase where a user's email address is written or changed,
+    and list the file paths. Places that only read the email do not count. The codebase is
+    too large to read in full, so locate them.
+  marker: >-
+    Did the agent search outward from a first hit (following the store, imports, or
+    references) until the search was exhausted, rather than stopping at the first match
+    or guessing from file names?
+  checks:
+    - { type: answer_contains, all: [signup.ts, profile.ts, import.ts] }
+
+- id: f1
+  effect: foresee
+  fixture: sessions
+  target: premortem
+  target_terms: [premortem, pre-mortem, what could go wrong, failure modes, imagine it failed, risks, ways this fails]
+  line: >-
+    Migrate session storage from the in-memory store to a file-backed store under ./data,
+    so sessions survive a restart. createStore() must return the file-backed store. Write
+    plan.md before you change any code, then do the migration. Keep `bun test` passing.
+  marker: >-
+    Before changing code, did the agent name at least one concrete way the migration could
+    fail (for example Date fields not surviving JSON, a missing data directory, sweep
+    across instances) and then address it?
+  checks:
+    - { type: test, file: checks/f1-file-store.test.ts }
+
+- id: f2
+  effect: foresee
+  fixture: shared-interface
+  target: seam
+  target_terms: [seam, call site, callers, blast radius, every importer, boundary, dependents]
+  line: >-
+    Change Repository.find to take an options object, find({ id }), instead of a bare id.
+    The interface is used across the codebase, which you have not seen before. Keep
+    `bun test` passing.
+  marker: >-
+    Did the agent locate every caller of find before editing the interface, and change the
+    interface and its callers as one bounded edit, rather than discovering callers by
+    running the tests repeatedly?
+  checks:
+    - { type: test, file: checks/f2-find-options.test.ts }
+
+- id: f3
+  effect: foresee
+  fixture: obvious-bug
+  target: red-before-green
+  target_terms: [reproduce, failing test, red, red-green, red before green, test first, regression test, confirm the bug]
+  line: >-
+    Customers report invoice totals that are sometimes off by a cent. The rounding in
+    src/money.ts looks wrong. Fix the bug and keep `bun test` passing.
+  marker: >-
+    Did the agent reproduce the wrong total with a failing test or a concrete run before
+    editing any source file?
+  checks:
+    - { type: test, file: checks/f3-per-line-rounding.test.ts }

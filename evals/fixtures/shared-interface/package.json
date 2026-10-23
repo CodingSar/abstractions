@@ -1,0 +1,1 @@
+{ "name": "shared-interface", "type": "module", "scripts": { "test": "bun test" } }
