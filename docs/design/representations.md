@@ -33,3 +33,23 @@ The eval plan in `mechanism.md` applies to all three unchanged. The question eac
 ## How the pick will be made
 
 Same task bank, same three measures (salience probe, behavioural marker, outcome and cost), same neutral-text control arm. Compare per effect, not only overall: a form may win on one effect and lose on another, and a mixed result is a finding, not a tie. The pick is recorded as ADR 0002 and the losing experiments stay in `experiments/` with their results, because a negative result is evidence.
+
+## What came back
+
+All three writers met the constraints. Read side by side, before any eval:
+
+| | a-lexicon | b-graph | c-vignette |
+|---|---|---|---|
+| Entry file | `LEXICON.md`: term and trigger per row | `EFFECTS.md`: seeds, hops, cap per effect | `SCENES.md`: situation per row |
+| Unit body | one bold term, one gloss, one `Salient:` line | two-line gist plus outgoing typed edges | three to six sentences of past-tense scene, schema name kept out |
+| Front-matter fields | 5: term, source, effect, trigger, evidence | 3: name, edges, evidence | 5: effect, schema, situation, cues, evidence |
+| Selection | task verb → effect, then trigger match, cap 3 | breadth-first from seed nodes, bounded by hops and cap | cue substring count, sorted, cap 3 and 2 per effect |
+| Example packet | ~170 tokens, 3 terms | ~250 tokens, 3 nodes and 7 edges | ~220 tokens, 2 scenes |
+| Where it can go wrong | wrong sense of a word; a no-op word | foils name the shape to avoid; hinge bloat | surface match; copying the move literally |
+
+Points the evals must settle, visible already:
+
+- **Selection is the weak link in all three.** Verb classification, cue substrings, and seed choice are each a heuristic over the task line. A wrong selection costs more than a weak unit. The harness should score selection separately from steering: did the packet contain the right unit, and did the right unit then move the agent?
+- **The graph's hypothesis is the most falsifiable.** Its control is its own node list rendered flat as a lexicon packet; if the edges add nothing, the relation lines are pure cost.
+- **The vignette's hypothesis is the most distinct.** It is the only form where the salience probe can fail while the behavioural marker passes: the agent may act on the schema without being able to name it. Both measures are needed to read it.
+- **Token cost is close enough to ignore for now** (170 to 250 per packet). The decision will turn on steering, not size.

@@ -1,9 +1,10 @@
 ---
 id: TASK-7
 title: Build three orthogonal representation experiments in parallel
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-10-23T16:15:00Z'
+updated_date: '2026-10-23T16:20:00Z'
 labels: []
 dependencies: []
 ordinal: 5000
