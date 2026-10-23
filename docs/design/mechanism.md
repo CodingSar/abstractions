@@ -57,7 +57,9 @@ Reading the table rather than the totals:
 - **K and L are information, not steering.** A glossary or a codebase digest hands the model facts it lacks. Useful, already covered by `GLOSSARY.md` and by tools like Groma, and outside this repo's thesis.
 - **E, D, G, I** score mid-table for the same reason: each works, each is broad or lossy, and each is easy to re-express as a frame (a persona is a frame over priorities; a mnemonic is a frame over a checklist). Fold them into B when they fit, skip them when they don't.
 
-## Pick
+## Pick (withdrawn: now one candidate among three experiments)
+
+The author asked for the form of representation to be settled by experiment rather than by this table. What follows is kept as the reasoning behind one of the three candidates; see `experiments/`.
 
 **One unit: the leading word, defined as a term or short phrase that names a schema the model already holds.** A single term and a named frame are the same unit; the file records which source the model knows it from. Everything else in the table is either a composition of units (constellation, catalog category) or an optional sharpener inside a unit (probe, skeleton, dial).
 

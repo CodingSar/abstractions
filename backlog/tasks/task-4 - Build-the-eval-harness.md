@@ -1,9 +1,10 @@
 ---
 id: TASK-4
-title: Build the eval harness
+title: Build the eval harness across the three experiments
 status: To Do
 assignee: []
 created_date: '2026-10-23T16:03:00Z'
+updated_date: '2026-10-23T16:15:00Z'
 labels: []
 dependencies:
   - TASK-2
@@ -15,7 +16,7 @@ ordinal: 4000
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-Task bank in evals/tasks/, paired-run script (with and without the word, n>=5, headless CLI), salience probe, behavioural-marker judge, outcome and token cost, evidence writer.
+Paired runs (with/without, n>=5, headless CLI), salience probe, behavioural-marker judge, outcome and token cost, neutral-text control arm from the first run. Runs each of the three representation experiments against the same task bank.
 <!-- SECTION:DESCRIPTION:END -->
 
 ## Acceptance Criteria

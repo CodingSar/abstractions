@@ -4,9 +4,7 @@ A personal knowledge base of abstractions: compact units of knowledge handed to 
 
 ## Layout
 
-Three tiers of disclosure, so an agent pulls only what a task needs: `CATALOG.md` (one line per effect) → `effects/<effect>.md` (one line per leading word) → `words/<slug>.md` (the word itself). Design explorations live in `docs/design/`; the current one is `docs/design/mechanism.md`, which also holds the word template and the evaluation plan.
-
-Another repo uses this one with a single line in its CLAUDE.md: scan `CATALOG.md` before a task and pull the words whose trigger fits.
+The form an abstraction takes is an open question being settled by experiment: three candidate representations live under `experiments/<name>/`, each self-contained, built with minimal signal sharing between them. An orchestrator must be able to grab an abstraction and push it to subagents, so each file carries light front matter and nothing more. Design explorations live in `docs/design/`; the eval plan is in `docs/design/mechanism.md`.
 
 ## Workflow
 
